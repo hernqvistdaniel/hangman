@@ -10,6 +10,10 @@ var selectedWord; // randomizeat ord
 var letterBoxesEl = document.querySelector('#letterBox'); //deklaration på de tomma bokstavslådorna
 var hangmanImg = ["images/h0.png", "images/h1.png", "images/h2.png", "images/h3.png", "images/h4.png", "images/h5.png", "images/h6.png"]; //Bild som kommer vid fel svar
 var startGameBtnStatus = document.getElementById('startGameBtn');
+var ul = document.getElementById('letters'); // target UL
+var hit = 0;
+var miss = 0;
+
 
 // Funktion som körs då hela webbsidan är inladdad, dvs då all HTML-kod är utförd
 
@@ -26,7 +30,10 @@ var startGame = function () {
 
   startGameBtnStatus.disabled = true;
   document.querySelector("#hangman").src = hangmanImg[0];
-  var miss = 0;
+  ul.innerHTML = '';
+  miss = 0;
+  hit = 0;
+  messageH1.innerHTML = '';
   randomizeWord();
   printLetters();
   listenButtons();
@@ -37,38 +44,31 @@ var randomizeWord = function () {
 }
 // Funktionen som tar fram bokstävernas rutor, antal beror på vilket ord
 
-var printLetters = function () {
-  for (let i = 0; i < selectedWord.length - 1; i++) {
-    document.getElementById('letters').appendChild(letterBoxesEl.cloneNode(true));
-  }
-}
-
-// var printLetters = function() {
-//   for (let i = 0; i < selectedWord.length; i++) {
-//     createLi = document.createElement("li");
-//     createLi.innerHTML = `<input type="text" disabled value="" />`;
-//     document.getElementById("letters").appendChild(createLi[i]);
-//   }
-//  };
+var printLetters = function(){
+  for (i = 0; i < selectedWord.length; i++) {
+  var li = document.createElement('li');
+  ul.appendChild(li);
+  li.innerHTML = '<input id="input" type="text" disabled value="&nbsp;"/>';
+}};
 
 // Funktion som körs när du trycker på bokstäverna och gissar bokstav
-var hit = 0;
-var miss = 0;
 function btnClickCallback(event) {
   event.target.disabled = true;
   for (let i = 0; i < selectedWord.length; i++){
-    if (event.target.value == selectedWord[i].charAt(0)){
-      let printSome = document.querySelectorAll('#letterBox');
-      printSome[i].innerHTML = '<input type="text" disabled value="' + event.target.value + '"/>';
+  if (event.target.value == selectedWord[i]/*.charAt(0)*/){
+      let printSome = document.getElementsByTagName('input');
+      printSome[i].value = event.target.value;
       hit++;
     }
-  }
+    }
+  
   if (selectedWord.includes(event.target.value) == false) {
     miss++;
     document.querySelector("#hangman").src = hangmanImg[miss];
   }
   checkWin();
 }
+// Addera clickListener till alla bokstäver på brädet
 function listenButtons (){
 for (let i = 0; i < letterButtons.length; i++) {
   letterButtons[i].addEventListener('click', btnClickCallback);
@@ -88,10 +88,12 @@ function checkWin(){
 }
   
   // Funktion som inaktiverar/aktiverar bokstavsknapparna beroende på vilken del av spelet du är på
+  
   function disableButtons () {
   for (let i = 0; i < letterButtons.length; i++) {
     letterButtons[i].disabled = true;
   }  
     startGameBtnStatus.disabled = false;
-    // document.getElementById('letters').removeChild(letterBoxesEl.cloneNode(true));
   }
+
+  
