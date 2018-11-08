@@ -1,7 +1,7 @@
 // Globala variabler
 
 var wordList = ["NEJLIKA", "SVARTPEPPAR", "ROSMARIN", "BASILIKA", "SALT", "KRYDDPEPPAR",
-  "TIMJAN", "GURKMEJA", "SPISKUMMIN", "PAPRIKAPULVER"]; // Lista med spelets alla ord// Ett av orden valt av en slumpgenerator
+  "TIMJAN", "GURKMEJA", "SPISKUMMIN", "PAPRIKAPULVER", "GRILLKRYDDA"]; // Lista med spelets alla ord// Ett av orden valt av en slumpgenerator
 var letterBoxes; //Rutorna där bokstäverna ska stå
 var hangmanImgNr = document.querySelector('img'); // Vilken av bilderna som kommer upp beroende på hur många fel du gjort
 var messageH1 = document.querySelector('#messageH1'); // Ger meddelande när spelet är över
@@ -23,7 +23,6 @@ function init() {
 
 window.onload = init; // Se till att init aktiveras då sidan är inladdad
 
-
 // Funktion som startar spelet vid knapptryckning, och då tillkallas andra funktioner
 
 var startGame = function () {
@@ -40,6 +39,7 @@ var startGame = function () {
 var randomizeWord = function () {
   selectedWord = wordList[Math.floor(Math.random() * wordList.length)]
 }
+
 // Funktionen som tar fram bokstävernas rutor, antal beror på vilket ord
 
 var printLetters = function () {
@@ -83,6 +83,7 @@ function listenButtons() {
 function checkWin() {
   if (miss == 6) {
     messageH1.innerHTML = 'Du förlorade!';
+    messageH2.innerHTML = 'Rätta ordet var: ' + selectedWord;
     disableButtons();
   } if (selectedWord.length == hit) {
     messageH1.innerHTML = 'Du vann!';
