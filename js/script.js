@@ -1,10 +1,12 @@
 // Globala variabler
 
 var wordList = ["NEJLIKA", "SVARTPEPPAR", "ROSMARIN", "BASILIKA", "SALT", "KRYDDPEPPAR",
-  "TIMJAN", "GURKMEJA", "SPISKUMMIN", "PAPRIKAPULVER", "GRILLKRYDDA"]; // Lista med spelets alla ord// Ett av orden valt av en slumpgenerator
+  "TIMJAN", "GURKMEJA", "SPISKUMMIN", "PAPRIKAPULVER", "GRILLKRYDDA", "KANEL", "OREGANO",
+"KARDEMUMMA", "INGEFÄRA", "DRAGON", "MEJRAM", "DILL", "ENBÄR", "LAGERBLAD", "KORIANDER"]; // Lista med spelets alla ord// Ett av orden valt av en slumpgenerator
 var letterBoxes; //Rutorna där bokstäverna ska stå
 var hangmanImgNr = document.querySelector('img'); // Vilken av bilderna som kommer upp beroende på hur många fel du gjort
-var messageH1 = document.querySelector('#messageH1'); // Ger meddelande när spelet är över
+var message1 = document.querySelector('#message1'); // Vinst eller förlust?
+var message2 = document.querySelector('#message2'); // Rätta svaret vid förlust.
 var startGameBtn = document.getElementById('startGameBtn'); // Knappen du startar spelet med
 var letterButtons = document.querySelectorAll('#letterButtons > li > .btn'); // Knapparna för bokstäverna
 var selectedWord; // randomizeat ord
@@ -82,11 +84,11 @@ function listenButtons() {
 
 function checkWin() {
   if (miss == 6) {
-    messageH1.innerHTML = 'Du förlorade!';
-    messageH2.innerHTML = 'Rätta ordet var: ' + selectedWord;
+    message1.innerHTML = 'Du förlorade!';
+    message2.innerHTML = 'Rätta ordet var: ' + selectedWord;
     disableButtons();
   } if (selectedWord.length == hit) {
-    messageH1.innerHTML = 'Du vann!';
+    message1.innerHTML = 'Du vann!';
     disableButtons();
   }
 }
@@ -107,5 +109,6 @@ function reset() {
   ul.innerHTML = '';
   miss = 0;
   hit = 0;
-  messageH1.innerHTML = '';
+  message1.innerHTML = '';
+  message2.innerHTML = '';
 }
