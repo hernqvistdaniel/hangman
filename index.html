@@ -10,7 +10,7 @@
 
 <body>
     <header>
-        <h1>Uppgift 05 - Hangman</h1>
+        <h1>Hangman</h1>
     </header>
     <main>
         <article>
@@ -20,11 +20,12 @@
                Ditt mål är att gissa ordet genom att trycka på bokstavsknapparna.<br/>
                För varje bokstav du gissar rätt, så fylls dyker det upp en bokstav i på den plats som bokstaven du gissade på motsvarar i ordet.
             </p>
-            <ul>
-                <li>Övriga regler</li>
-            </ul>
+            <h1 id="tema">TEMA: I KRYDDSKÅPET</h1>
         </article>
-        <button class="btn btn--stripe" type="button" id="startGameBtn">Starta spelet</button>
+        <article id="gameBoardstart gameboard">
+            <button class="btn btn--stripe" type="button" id="startGameBtn">Starta spelet</button>
+            <img id="hangman" src="images/h0.png" alt="hangman">
+        </article>
         <section id="gameBoard">
             <ul id="letterButtons">
                 <li><button class="btn btn--stripe" type="button" value="A">A</button></li>
@@ -60,15 +61,12 @@
             <section id="letterBoxes">
                 <!-- This is where the matched letters should appear, these should match the number of -->
                 <ul id="letters">
-                    <!-- <li id="letterBox">
-                        <input type="text" disabled value="&nbsp;"/>
-                    </li> -->
                 </ul>
+                <section id="message">
+                    <h1 id="messageH1"></h1>
+                    
+                </section>
             </section>
-            <img id="hangman" src="images/h0.png" alt="hangman">
-        </section>
-        <section id="message">
-            <h1 id="messageH1"></h1>
         </section>
     </main>
     <footer>

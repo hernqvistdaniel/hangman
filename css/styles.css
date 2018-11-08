@@ -40,6 +40,7 @@ header h1 {
 main {
   flex: 1;
   padding: 1.5em;
+  
 }
 
 main:after {
@@ -73,6 +74,7 @@ main > article > h2 {
 
 ul {
   list-style-type: none;
+  text-align: center;
 }
 
 footer {
@@ -87,13 +89,21 @@ footer {
   text-align: center;
 }
 
+#hangman {
+  height: 200px;
+  width: 200px;
+}
+
 #startGameBtn {
   font-size: 1.5em;
 }
 
 #gameBoard {
-  padding: 10px 0;
+  padding: 10px 100px;
 }
+#gameboardstart {
+  padding: 0px;
+  justify-content: center;}
 
 #letterButtons {
   display: inline-flex;
@@ -103,19 +113,24 @@ footer {
   align-items: center;
 }
 
+#tema {
+  padding-top: 10px;
+}
+
 #letterButtons button:not(last-child) {
   margin: 4px 4px;
   cursor: pointer;
-  max-width: 84px;
-  min-width: 84px;
+  max-width: 25px;
+  min-width: 25px;
 }
 
-#letterBoxes li {
+#letters li {
   display: inline-flex;
+  text-align: center;
 }
 
-#letterBoxes input {
-  border: 1px solid #666;
+#letters input {
+  border: 2px solid red;
   color: #666;
   font-size: 1.5em;
   font-weight: bold;
@@ -124,11 +139,12 @@ footer {
   padding: 20px 5px;
   text-align: center;
   width: 2em;
-}
+  }
 
 #message {
   padding-top: 20px;
   font-size: 1.5em;
+  text-align: center;
 }
 
 .btn {
