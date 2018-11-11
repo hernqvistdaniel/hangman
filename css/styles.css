@@ -147,6 +147,7 @@ footer {
   text-align: center;
 }
 
+
 .btn {
   -moz-user-select: text;
   background-color: #fff;
@@ -189,50 +190,91 @@ footer {
     #666 1px,
     transparent 2px,
     transparent 5px
-  );
-  background-image: repeating-linear-gradient(
-    45deg,
-    #666,
-    #666 1px,
-    transparent 2px,
-    transparent 5px
-  );
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  border-top: 1px solid #666;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  background-size: 7px 7px;
-}
-
-.btn--stripe:disabled {
-  background-color: #999;
-  color: #fff;
-  border-color: #666;
-}
-
-.btn--stripe:hover {
-  background-color: #666;
-  color: #fff;
-  border-color: #000;
-}
-
-.btn--stripe:disabled:after,
-.btn--stripe:hover:after {
-  background-image: -webkit-repeating-linear-gradient(
-    45deg,
-    #fff,
-    #fff 1px,
-    transparent 2px,
-    transparent 5px
-  );
-  background-image: repeating-linear-gradient(
-    45deg,
-    #fff,
-    #fff 1px,
-    transparent 2px,
-    transparent 5px
-  );
-  border-top: 1px solid #000;
-}
+    );
+    background-image: repeating-linear-gradient(
+      45deg,
+      #666,
+      #666 1px,
+      transparent 2px,
+      transparent 5px
+      );
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-top: 1px solid #666;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background-size: 7px 7px;
+    }
+    
+    .btn--stripe:disabled {
+      background-color: #999;
+      color: #fff;
+      border-color: #666;
+    }
+    
+    .btn--stripe:hover {
+      background-color: #666;
+      color: #fff;
+      border-color: #000;
+    }
+    
+    .btn--stripe:disabled:after,
+    .btn--stripe:hover:after {
+      background-image: -webkit-repeating-linear-gradient(
+        45deg,
+        #fff,
+        #fff 1px,
+        transparent 2px,
+        transparent 5px
+        );
+        background-image: repeating-linear-gradient(
+          45deg,
+          #fff,
+          #fff 1px,
+          transparent 2px,
+          transparent 5px
+          );
+          border-top: 1px solid #000;
+        }
+        
+@media only screen and (max-width: 600px){
+        
+          #gameBoard {
+            padding: 0px 0px;
+          }
+        
+          #letterButtons button:not(last-child) {
+            margin: 2px 2px;
+            padding: 4px 4px;
+            cursor: pointer;
+            max-width: 35px;
+            min-width: 35px;
+          }
+        
+          #letters input {
+            border: 2px solid red;
+            color: #666;
+            font-size: 1em;
+            font-weight: bold;
+            line-height: 2em;
+            margin-top: 1em;
+            padding: 20px 5px;
+            text-align: center;
+            width: 1em;
+            height: 1em;
+            margin: 2px;
+            }
+        
+        .btn {     
+        font-size: 2em; 
+        padding: 3px 13px 3px 3px;
+        margin-bottom: 16px;
+        }
+        
+            #letterButtons {
+              justify-content: space-around;
+              padding: 0;
+            }
+        
+        }
